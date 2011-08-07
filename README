@@ -1,0 +1,11 @@
+[in Terminal1] --> Runninng selenium-server
+$ java -jar server/selenium-server-standalone-2.3.0.jar
+
+[in Terminal2] --> Running SBT
+$ bin/sbt
+
+[in SBT (in Terminal2)] --> Running htmlUnitDriver or firefoxDriver
+> selenium-test
+or
+> selenium-test firefox
+
