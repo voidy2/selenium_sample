@@ -4,7 +4,7 @@ $ java -jar server/selenium-server-standalone-2.3.0.jar
 [in Terminal2] --> Running SBT
 $ bin/sbt
 
-[in SBT (in Terminal2)] --> Running htmlUnitDriver or firefoxDriver or InternetExploreDriver
+[in SBT (in Terminal2)] --> Running HtmlUnitDriver or FirefoxDriver or InternetExploreDriver
 > selenium-test
 or
 > selenium-test firefox
