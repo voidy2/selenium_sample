@@ -11,3 +11,5 @@ or
 or (Windows only)
 > selenium-test ie
 
+[Output Report (junit-xml-format)]
+target/reports/*.xml
