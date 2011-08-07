@@ -11,8 +11,7 @@ object MyBuild extends Build
   )
 
   def selenium_test = Command.args("selenium-test", "<args>") { (state, args) =>
-    "%s %s -f %s".format(cmd("bin/ant"), args.headOption.getOrElse("htmlUnit"), "bin/build.xml", "firefox")!
-      //args.headOption.map{ v => "-Dselen=" + v }.getOrElse(""))
+    "%s %s -f %s".format(cmd("bin/ant"), args.headOption.getOrElse("htmlUnit"), "bin/build.xml")!
 
     state
   }
