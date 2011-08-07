@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+    <project name="JUnitTest" default="runtests">
+
+    <property file="test.properties"/>
+    <property name="junit.lib.dir" value="./selenium-2.3.0/"/>
+    <property name="src.dir" value="../src"/>
+    <property name="builddir" value="../target/classes"/>
+    <property name="report.dir" value="../target/reports"/>
+
+    <target name="init">
+    <mkdir dir="${builddir}"/>
+    <mkdir dir="${report.dir}"/>
+    <echo>init complete!</echo>
+    </target>
+
+    <path id="test.classpath">
+      <fileset dir="${junit.lib.dir}">
+        <include name="**/*.jar"/>
+      </fileset>
+      <pathelement path="${ant.home}/lib/xml-apis.jar:${ant.home}/lib/xercesImpl.jar"/>
+    </path>
+
+    <target name="compile" depends="init">
+      <javac srcdir="${src.dir}" destdir="${builddir}" >
+        <classpath>
+          <fileset dir="./selenium-2.3.0/" includes="*.jar"/>
+        </classpath>
+      </javac>
+          <echo>compile complete!</echo>
+    </target>
+
+    <target name="runtests" depends="compile">
+    <delete>
+       <fileset dir="${report.dir}" includes="**/*" />
+    </delete>
+    <junit fork="yes" haltonerror="yes" haltonfailure="no" printsummary="true">
+      <jvmarg value="-Dfile.encoding=UTF-8"/>
+
+      <formatter type="xml"/>
+      <classpath>
+        <path refid="test.classpath" />
+        <pathelement location="../target/classes"/>
+      </classpath>
+      <batchtest fork="yes" todir="${report.dir}">
+        <fileset dir="${src.dir}">
+        <include name="**/*Test*.java"/>
+        </fileset>
+      </batchtest>
+    
+    </junit>
+
+    <echo>All Test complete!</echo>
+    </target>
+
+    <target name="clean" depends="init">
+    <delete dir="${builddir}"/>
+    <delete>
+    <fileset dir="." includes="TEST-*"/>
+    </delete>
+    <echo>delete complete!</echo>
+    </target>
+
+</project>
+
+

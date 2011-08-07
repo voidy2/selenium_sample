@@ -1,0 +1,7 @@
+#!/bin/sh
+BIN_DIR=$(cd $(dirname $0);pwd)
+export SELENIUM_TEST_BROWSER=$1
+export ANT_HOME=${BIN_DIR}/apache-ant-1.8.2/
+export PATH=${PATH}:${ANT_HOME}/bin
+shift 1
+ant "$@"
