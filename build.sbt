@@ -6,8 +6,7 @@ resolvers ++= Seq(
   "Sonatype Nexus Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
   "Sonatype Nexus Releases" at "https://oss.sonatype.org/content/repositories/releases",
   "FuseSource Snapshot Repository" at "http://repo.fusesource.com/nexus/content/repositories/snapshots",
-  "Morphia Repo at Google Code" at "http://morphia.googlecode.com/svn/mavenrepo",
-  "orangesignal" at "http://orangesignal.sourceforge.jp/maven2"
+  "Morphia Repo at Google Code" at "http://morphia.googlecode.com/svn/mavenrepo"
 )
 
 libraryDependencies ++= Seq(
@@ -34,7 +33,5 @@ compileOrder in Compile := CompileOrder.JavaThenScala
 
 // allow circular dependencies for test sources
 compileOrder in Test := CompileOrder.Mixed
-
-unmanagedBase <<= baseDirectory { base => base / "selenium-2.3.0" }
 
 testFrameworks := Seq(TestFrameworks.JUnit)
